@@ -1,0 +1,275 @@
+[
+  {
+    "id": 1,
+    "slug": "dvobortne-shkiriane-palto",
+    "category": "coats",
+    "image": "products/c7.webp",
+    "hasHanger": false,
+    "price": 13500,
+    "oldPrice": 0,
+    "stock": "in",
+    "material": "leather",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "#1A1A1C"
+    ],
+    "code": "FZ-101",
+    "name": {
+      "uk": "Двобортне шкіряне пальто",
+      "en": "Double-breasted leather coat",
+      "ru": "Двубортное кожаное пальто",
+      "de": "Zweireihiger Ledermantel",
+      "fr": "Manteau en cuir croisé",
+      "pl": "Dwurzędowy płaszcz skórzany",
+      "tr": "Kruvaze deri kaban"
+    },
+    "isNew": true,
+    "isFeatured": false
+  },
+  {
+    "id": 2,
+    "slug": "vintazhna-shkiriana-kurtka",
+    "category": "jackets",
+    "image": "products/c69.webp",
+    "hasHanger": false,
+    "price": 12000,
+    "oldPrice": 14000,
+    "stock": "in",
+    "material": "leather",
+    "sizes": [
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "#4A3727",
+      "#1A1A1C"
+    ],
+    "code": "FZ-102",
+    "name": {
+      "uk": "Вінтажна шкіряна куртка",
+      "en": "Vintage leather jacket",
+      "ru": "Винтажная кожаная куртка",
+      "de": "Vintage-Lederjacke",
+      "fr": "Veste en cuir vintage",
+      "pl": "Vintage kurtka skórzana",
+      "tr": "Vintage deri ceket"
+    },
+    "variants": [
+      {
+        "color": "#4A3727",
+        "filter": "none"
+      },
+      {
+        "color": "#1A1A1C",
+        "filter": "grayscale(1) brightness(.55) contrast(1.25)"
+      }
+    ],
+    "isNew": true,
+    "isFeatured": true
+  },
+  {
+    "id": 7,
+    "slug": "stobana-sumka-tout",
+    "category": "bags",
+    "type": "bag",
+    "image": "products/bag34.webp",
+    "hasHanger": false,
+    "price": 4900,
+    "oldPrice": 0,
+    "stock": "in",
+    "material": "leather",
+    "sizes": [],
+    "colors": [
+      "#141416"
+    ],
+    "code": "FZ-201",
+    "name": {
+      "uk": "Стьобана сумка-тоут",
+      "en": "Quilted tote bag",
+      "ru": "Стёганая сумка-тоут",
+      "de": "Gesteppte Tote Bag",
+      "fr": "Sac cabas matelassé",
+      "pl": "Pikowana torba shopper",
+      "tr": "Kapitone tote çanta"
+    },
+    "isNew": true,
+    "isFeatured": false
+  },
+  {
+    "id": 3,
+    "slug": "dublianka",
+    "category": "sheepskins",
+    "image": "products/c83.webp",
+    "hasHanger": false,
+    "price": 26500,
+    "oldPrice": 0,
+    "stock": "in",
+    "material": "fur",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "colors": [
+      "#2A2522"
+    ],
+    "code": "FZ-103",
+    "name": {
+      "uk": "Дублянка",
+      "en": "Sheepskin coat",
+      "ru": "Дублёнка",
+      "de": "Lammfellmantel",
+      "fr": "Manteau en peau lainée",
+      "pl": "Kożuch",
+      "tr": "Kürklü kaban"
+    },
+    "isNew": false,
+    "isFeatured": false
+  },
+  {
+    "id": 4,
+    "slug": "shkiriane-palto-z-poiasom",
+    "category": "coats",
+    "image": "products/c9.webp",
+    "hasHanger": false,
+    "price": 12800,
+    "oldPrice": 0,
+    "stock": "order",
+    "material": "leather",
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "#1A1A1C"
+    ],
+    "code": "FZ-104",
+    "name": {
+      "uk": "Шкіряне пальто з поясом",
+      "en": "Belted leather coat",
+      "ru": "Кожаное пальто с поясом",
+      "de": "Ledermantel mit Gürtel",
+      "fr": "Manteau en cuir ceinturé",
+      "pl": "Skórzany płaszcz z paskiem",
+      "tr": "Kemerli deri kaban"
+    },
+    "isNew": false,
+    "isFeatured": false
+  },
+  {
+    "id": 8,
+    "slug": "shkiriana-sumka-cherez-pleche",
+    "category": "bags",
+    "type": "bag",
+    "image": "products/bag10.webp",
+    "hasHanger": false,
+    "price": 5800,
+    "oldPrice": 6800,
+    "stock": "order",
+    "material": "leather",
+    "sizes": [],
+    "colors": [
+      "#141416",
+      "#E8A317"
+    ],
+    "code": "FZ-202",
+    "name": {
+      "uk": "Шкіряна сумка через плече",
+      "en": "Leather shoulder bag",
+      "ru": "Кожаная сумка через плечо",
+      "de": "Leder-Umhängetasche",
+      "fr": "Sac bandoulière en cuir",
+      "pl": "Skórzana torba na ramię",
+      "tr": "Deri omuz çantası"
+    },
+    "isNew": false,
+    "isFeatured": false
+  },
+  {
+    "id": 5,
+    "slug": "kurtka-olyvkova",
+    "category": "jackets",
+    "image": "products/c6.webp",
+    "hasHanger": false,
+    "price": 10000,
+    "oldPrice": 0,
+    "stock": "in",
+    "material": "leather",
+    "sizes": [
+      "M",
+      "L",
+      "XL"
+    ],
+    "colors": [
+      "#6B6343",
+      "#7A4A2B",
+      "#1A1A1C"
+    ],
+    "code": "FZ-105",
+    "name": {
+      "uk": "Куртка оливкового кольору",
+      "en": "Olive jacket",
+      "ru": "Куртка оливкового цвета",
+      "de": "Olivfarbene Jacke",
+      "fr": "Veste olive",
+      "pl": "Oliwkowa kurtka",
+      "tr": "Haki ceket"
+    },
+    "variants": [
+      {
+        "color": "#6B6343",
+        "filter": "none"
+      },
+      {
+        "color": "#7A4A2B",
+        "filter": "hue-rotate(-28deg) saturate(1.6) brightness(.92)"
+      },
+      {
+        "color": "#1A1A1C",
+        "filter": "grayscale(1) brightness(.5) contrast(1.3)"
+      }
+    ],
+    "isNew": false,
+    "isFeatured": false
+  },
+  {
+    "id": 6,
+    "slug": "chorne-shkiriane-palto",
+    "category": "coats",
+    "image": "products/c34.webp",
+    "hasHanger": false,
+    "price": 9500,
+    "oldPrice": 0,
+    "stock": "in",
+    "material": "leather",
+    "sizes": [
+      "S",
+      "M",
+      "L"
+    ],
+    "colors": [
+      "#141416"
+    ],
+    "code": "FZ-106",
+    "name": {
+      "uk": "Чорне шкіряне пальто",
+      "en": "Black leather coat",
+      "ru": "Чёрное кожаное пальто",
+      "de": "Schwarzer Ledermantel",
+      "fr": "Manteau en cuir noir",
+      "pl": "Czarny płaszcz skórzany",
+      "tr": "Siyah deri kaban"
+    },
+    "isNew": false,
+    "isFeatured": false
+  }
+]
