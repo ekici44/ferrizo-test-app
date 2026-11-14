@@ -29,7 +29,17 @@
       "tr": "Kruvaze deri kaban"
     },
     "isNew": true,
-    "isFeatured": false
+    "isFeatured": false,
+    "description": {
+      "uk": "Класичне двобортне пальто з м’якої натуральної шкіри. Широкі лацкани, глибокі кишені та підкладка з віскози — для прохолодної осені й міста.",
+      "en": "A classic double-breasted coat in soft genuine leather. Wide lapels, deep pockets and a viscose lining — made for cool autumn days in the city.",
+      "ru": "Классическое двубортное пальто из мягкой натуральной кожи. Широкие лацканы, глубокие карманы и подкладка из вискозы — для прохладной осени и города.",
+      "de": "Klassischer Zweireiher aus weichem Echtleder. Breites Revers, tiefe Taschen und Viskosefutter – für kühle Herbsttage in der Stadt.",
+      "fr": "Un manteau croisé classique en cuir véritable souple. Larges revers, poches profondes et doublure en viscose — pour les journées fraîches en ville.",
+      "pl": "Klasyczny dwurzędowy płaszcz z miękkiej skóry naturalnej. Szerokie klapy, głębokie kieszenie i podszewka z wiskozy — na chłodną jesień w mieście.",
+      "tr": "Yumuşak hakiki deriden klasik kruvaze kaban. Geniş yakalar, derin cepler ve viskon astar — serin sonbahar günleri ve şehir için."
+    },
+    "images": []
   },
   {
     "id": 2,
@@ -72,7 +82,17 @@
       }
     ],
     "isNew": true,
-    "isFeatured": true
+    "isFeatured": true,
+    "description": {
+      "uk": "Вінтажна куртка з вираженою фактурою шкіри, що з роками стає лише красивішою. Прямий крій, металева фурнітура.",
+      "en": "A vintage jacket with a pronounced leather grain that only gets better with age. Straight cut, metal hardware.",
+      "ru": "Винтажная куртка с выраженной фактурой кожи, которая с годами становится только красивее. Прямой крой, металлическая фурнитура.",
+      "de": "Vintage-Jacke mit ausgeprägter Ledernarbung, die mit den Jahren nur schöner wird. Gerader Schnitt, Metallbeschläge.",
+      "fr": "Une veste vintage au grain de cuir marqué qui se bonifie avec le temps. Coupe droite, finitions métalliques.",
+      "pl": "Kurtka vintage z wyraźną fakturą skóry, która z latami staje się tylko piękniejsza. Prosty krój, metalowe okucia.",
+      "tr": "Yıllar geçtikçe daha da güzelleşen belirgin deri dokulu vintage ceket. Düz kesim, metal aksesuarlar."
+    },
+    "images": []
   },
   {
     "id": 7,
@@ -100,7 +120,17 @@
       "tr": "Kapitone tote çanta"
     },
     "isNew": true,
-    "isFeatured": false
+    "isFeatured": false,
+    "description": {
+      "uk": "Містка стьобана сумка-тоут з натуральної шкіри. Вміщує ноутбук, внутрішня кишеня на блискавці.",
+      "en": "A roomy quilted leather tote. Fits a laptop, with a zipped inner pocket.",
+      "ru": "Вместительная стёганая сумка-тоут из натуральной кожи. Вмещает ноутбук, внутренний карман на молнии.",
+      "de": "Geräumige gesteppte Ledertasche. Passt für einen Laptop, Innentasche mit Reißverschluss.",
+      "fr": "Un grand cabas matelassé en cuir. Accueille un ordinateur portable, poche intérieure zippée.",
+      "pl": "Pojemna pikowana torba typu tote ze skóry. Mieści laptopa, wewnętrzna kieszeń na zamek.",
+      "tr": "Geniş kapitone deri tote çanta. Dizüstü bilgisayar sığar, içinde fermuarlı cep var."
+    },
+    "images": []
   },
   {
     "id": 3,
@@ -131,7 +161,17 @@
       "tr": "Kürklü kaban"
     },
     "isNew": false,
-    "isFeatured": false
+    "isFeatured": false,
+    "description": {
+      "uk": "Тепла дублянка з натурального хутра для справжньої зими. Хутряний комір і манжети, щільна посадка.",
+      "en": "A warm natural-fur sheepskin coat for real winters. Fur collar and cuffs, a snug fit.",
+      "ru": "Тёплая дублёнка из натурального меха для настоящей зимы. Меховой воротник и манжеты, плотная посадка.",
+      "de": "Warmer Lammfellmantel aus Naturfell für echte Winter. Pelzkragen und -manschetten, enge Passform.",
+      "fr": "Une peau lainée chaude en fourrure naturelle pour les vrais hivers. Col et poignets en fourrure, coupe ajustée.",
+      "pl": "Ciepły kożuch z naturalnego futra na prawdziwą zimę. Futrzany kołnierz i mankiety, dopasowany krój.",
+      "tr": "Gerçek kışlar için doğal kürklü sıcak kaban. Kürk yaka ve manşetler, oturan kesim."
+    },
+    "images": []
   },
   {
     "id": 4,
@@ -163,7 +203,17 @@
       "tr": "Kemerli deri kaban"
     },
     "isNew": false,
-    "isFeatured": false
+    "isFeatured": false,
+    "description": {
+      "uk": "Подовжене пальто з поясом, що підкреслює силует. Натуральна шкіра, приховані ґудзики.",
+      "en": "A long belted coat that defines the silhouette. Genuine leather, concealed buttons.",
+      "ru": "Удлинённое пальто с поясом, подчёркивающим силуэт. Натуральная кожа, потайные пуговицы.",
+      "de": "Langer Mantel mit Gürtel, der die Silhouette betont. Echtleder, verdeckte Knöpfe.",
+      "fr": "Un long manteau ceinturé qui dessine la silhouette. Cuir véritable, boutons dissimulés.",
+      "pl": "Długi płaszcz z paskiem podkreślającym sylwetkę. Skóra naturalna, kryte guziki.",
+      "tr": "Silueti belirginleştiren kemerli uzun kaban. Hakiki deri, gizli düğmeler."
+    },
+    "images": []
   },
   {
     "id": 8,
@@ -192,7 +242,17 @@
       "tr": "Deri omuz çantası"
     },
     "isNew": false,
-    "isFeatured": false
+    "isFeatured": false,
+    "description": {
+      "uk": "Компактна сумка через плече з регульованим ременем. Натуральна шкіра, два кольори.",
+      "en": "A compact shoulder bag with an adjustable strap. Genuine leather, two colours.",
+      "ru": "Компактная сумка через плечо с регулируемым ремнём. Натуральная кожа, два цвета.",
+      "de": "Kompakte Umhängetasche mit verstellbarem Riemen. Echtleder, zwei Farben.",
+      "fr": "Un sac bandoulière compact à sangle réglable. Cuir véritable, deux coloris.",
+      "pl": "Kompaktowa torba na ramię z regulowanym paskiem. Skóra naturalna, dwa kolory.",
+      "tr": "Ayarlanabilir askılı kompakt omuz çantası. Hakiki deri, iki renk."
+    },
+    "images": []
   },
   {
     "id": 5,
@@ -239,7 +299,17 @@
       }
     ],
     "isNew": false,
-    "isFeatured": false
+    "isFeatured": false,
+    "description": {
+      "uk": "Легка куртка оливкового кольору на щодень. Доступна також у коньячному та чорному кольорах.",
+      "en": "A light olive jacket for everyday wear. Also available in cognac and black.",
+      "ru": "Лёгкая куртка оливкового цвета на каждый день. Также доступна в коньячном и чёрном цветах.",
+      "de": "Leichte olivfarbene Jacke für jeden Tag. Auch in Cognac und Schwarz erhältlich.",
+      "fr": "Une veste légère couleur olive pour tous les jours. Existe aussi en cognac et noir.",
+      "pl": "Lekka kurtka w kolorze oliwkowym na co dzień. Dostępna także w kolorze koniakowym i czarnym.",
+      "tr": "Günlük kullanım için hafif haki ceket. Konyak ve siyah renkleri de mevcut."
+    },
+    "images": []
   },
   {
     "id": 6,
@@ -270,6 +340,16 @@
       "tr": "Siyah deri kaban"
     },
     "isNew": false,
-    "isFeatured": false
+    "isFeatured": false,
+    "description": {
+      "uk": "Строге чорне пальто з гладкої шкіри, яке легко поєднати і з костюмом, і з джинсами.",
+      "en": "A sleek black coat in smooth leather that pairs as easily with a suit as with jeans.",
+      "ru": "Строгое чёрное пальто из гладкой кожи, которое легко сочетать и с костюмом, и с джинсами.",
+      "de": "Schlichter schwarzer Mantel aus Glattleder – passt zum Anzug ebenso wie zur Jeans.",
+      "fr": "Un manteau noir épuré en cuir lisse, aussi élégant avec un costume qu’avec un jean.",
+      "pl": "Elegancki czarny płaszcz z gładkiej skóry, który pasuje zarówno do garnituru, jak i do dżinsów.",
+      "tr": "Hem takım elbiseyle hem kotla kolayca kombinlenen, düz deriden sade siyah kaban."
+    },
+    "images": []
   }
 ]
