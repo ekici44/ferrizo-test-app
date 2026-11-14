@@ -629,3 +629,8 @@ body.no-scroll { overflow: hidden; }
   .hero2__media { aspect-ratio: 4 / 4.4; }
   .mini > img { height: 220px; }
 }
+/* Koleksiyon: fotoğraf kartları ipucu yazısının üstüne binmesin */
+.orbit__stage { height: min(70vh, 640px); }
+.orb { top: 44%; width: 220px; height: 280px; }
+.orbit__hint { margin-top: 18px; }
+@media (max-width: 900px) { .orb { top: 44%; width: 160px; height: 200px; } }
