@@ -3,7 +3,7 @@
     "id": 1,
     "slug": "dvobortne-shkiriane-palto",
     "category": "coats",
-    "image": "products/c7.webp",
+    "image": "https://images.unsplash.com/photo-1787259376107-c861e563e798?auto=format&fit=crop&w=1200&h=1500&q=80",
     "hasHanger": false,
     "price": 13500,
     "oldPrice": 0,
@@ -39,19 +39,22 @@
       "pl": "Klasyczny dwurzędowy płaszcz z miękkiej skóry naturalnej. Szerokie klapy, głębokie kieszenie i podszewka z wiskozy — na chłodną jesień w mieście.",
       "tr": "Yumuşak hakiki deriden klasik kruvaze kaban. Geniş yakalar, derin cepler ve viskon astar — serin sonbahar günleri ve şehir için."
     },
-    "images": [],
+    "images": [
+      "https://images.unsplash.com/photo-1568631982221-1fb409cbde0e?auto=format&fit=crop&w=1200&h=1500&q=80"
+    ],
     "attrs": {
       "leather": "sheep",
       "lining": "viscose",
       "closure": "buttons"
     },
-    "model": null
+    "model": null,
+    "photo": true
   },
   {
     "id": 2,
     "slug": "vintazhna-shkiriana-kurtka",
     "category": "jackets",
-    "image": "products/c69.webp",
+    "image": "https://images.unsplash.com/photo-1623854156816-4c4fc355ffc7?auto=format&fit=crop&w=1200&h=1500&q=80",
     "hasHanger": false,
     "price": 12000,
     "oldPrice": 14000,
@@ -64,7 +67,7 @@
       "XXL"
     ],
     "colors": [
-      "#4A3727",
+      "#7A4A2B",
       "#1A1A1C"
     ],
     "code": "FZ-102",
@@ -77,18 +80,8 @@
       "pl": "Vintage kurtka skórzana",
       "tr": "Vintage deri ceket"
     },
-    "variants": [
-      {
-        "color": "#4A3727",
-        "filter": "none"
-      },
-      {
-        "color": "#1A1A1C",
-        "filter": "grayscale(1) brightness(.55) contrast(1.25)"
-      }
-    ],
     "isNew": true,
-    "isFeatured": true,
+    "isFeatured": false,
     "description": {
       "uk": "Вінтажна куртка з вираженою фактурою шкіри, що з роками стає лише красивішою. Прямий крій, металева фурнітура.",
       "en": "A vintage jacket with a pronounced leather grain that only gets better with age. Straight cut, metal hardware.",
@@ -98,20 +91,23 @@
       "pl": "Kurtka vintage z wyraźną fakturą skóry, która z latami staje się tylko piękniejsza. Prosty krój, metalowe okucia.",
       "tr": "Yıllar geçtikçe daha da güzelleşen belirgin deri dokulu vintage ceket. Düz kesim, metal aksesuarlar."
     },
-    "images": [],
+    "images": [
+      "https://images.unsplash.com/photo-1578198576866-7e0ba6078128?auto=format&fit=crop&w=1200&h=1500&q=80"
+    ],
     "attrs": {
       "leather": "cow",
       "lining": "textile",
       "closure": "zip"
     },
-    "model": null
+    "model": null,
+    "photo": true
   },
   {
     "id": 7,
     "slug": "stobana-sumka-tout",
     "category": "bags",
     "type": "bag",
-    "image": "products/bag34.webp",
+    "image": "https://images.unsplash.com/photo-1624687943971-e86af76d57de?auto=format&fit=crop&w=1200&h=1500&q=80",
     "hasHanger": false,
     "price": 4900,
     "oldPrice": 0,
@@ -119,42 +115,45 @@
     "material": "leather",
     "sizes": [],
     "colors": [
-      "#141416"
+      "#8A5A33"
     ],
     "code": "FZ-201",
     "name": {
-      "uk": "Стьобана сумка-тоут",
-      "en": "Quilted tote bag",
-      "ru": "Стёганая сумка-тоут",
-      "de": "Gesteppte Tote Bag",
-      "fr": "Sac cabas matelassé",
-      "pl": "Pikowana torba shopper",
-      "tr": "Kapitone tote çanta"
+      "uk": "Шкіряна сумка-тоут",
+      "en": "Leather tote bag",
+      "ru": "Кожаная сумка-тоут",
+      "de": "Leder-Shopper",
+      "fr": "Cabas en cuir",
+      "pl": "Skórzana torba shopper",
+      "tr": "Deri tote çanta"
     },
     "isNew": true,
     "isFeatured": false,
     "description": {
-      "uk": "Містка стьобана сумка-тоут з натуральної шкіри. Вміщує ноутбук, внутрішня кишеня на блискавці.",
-      "en": "A roomy quilted leather tote. Fits a laptop, with a zipped inner pocket.",
-      "ru": "Вместительная стёганая сумка-тоут из натуральной кожи. Вмещает ноутбук, внутренний карман на молнии.",
-      "de": "Geräumige gesteppte Ledertasche. Passt für einen Laptop, Innentasche mit Reißverschluss.",
-      "fr": "Un grand cabas matelassé en cuir. Accueille un ordinateur portable, poche intérieure zippée.",
-      "pl": "Pojemna pikowana torba typu tote ze skóry. Mieści laptopa, wewnętrzna kieszeń na zamek.",
-      "tr": "Geniş kapitone deri tote çanta. Dizüstü bilgisayar sığar, içinde fermuarlı cep var."
+      "uk": "Містка сумка-тоут з м’якої шкіри коньячного кольору, яка з часом набуває благородної патини. Вміщує ноутбук.",
+      "en": "A roomy tote in soft cognac leather that develops a rich patina over time. Fits a laptop.",
+      "ru": "Вместительная сумка-тоут из мягкой кожи коньячного цвета, которая со временем приобретает благородную патину. Вмещает ноутбук.",
+      "de": "Geräumiger Shopper aus weichem cognacfarbenem Leder, das mit der Zeit eine edle Patina bekommt. Passt für einen Laptop.",
+      "fr": "Un grand cabas en cuir cognac souple qui se patine joliment avec le temps. Accueille un ordinateur portable.",
+      "pl": "Pojemna torba z miękkiej skóry w kolorze koniaku, która z czasem nabiera szlachetnej patyny. Mieści laptopa.",
+      "tr": "Zamanla asil bir patina kazanan, yumuşak konyak rengi deriden geniş tote çanta. Dizüstü bilgisayar sığar."
     },
-    "images": [],
+    "images": [
+      "https://images.unsplash.com/photo-1760624294582-5341f33f9fa4?auto=format&fit=crop&w=1200&h=1500&q=80"
+    ],
     "attrs": {
       "leather": "cow",
       "lining": "textile",
       "closure": "zip"
     },
-    "model": null
+    "model": null,
+    "photo": true
   },
   {
     "id": 3,
     "slug": "dublianka",
     "category": "sheepskins",
-    "image": "products/c83.webp",
+    "image": "https://images.unsplash.com/photo-1559551409-dadc959f76b8?auto=format&fit=crop&w=1200&h=1500&q=80",
     "hasHanger": false,
     "price": 26500,
     "oldPrice": 0,
@@ -189,19 +188,23 @@
       "pl": "Ciepły kożuch z naturalnego futra na prawdziwą zimę. Futrzany kołnierz i mankiety, dopasowany krój.",
       "tr": "Gerçek kışlar için doğal kürklü sıcak kaban. Kürk yaka ve manşetler, oturan kesim."
     },
-    "images": [],
+    "images": [
+      "https://images.unsplash.com/photo-1760533091973-1262bf57d244?auto=format&fit=crop&w=1200&h=1500&q=80",
+      "https://images.unsplash.com/photo-1758887263088-61de30342313?auto=format&fit=crop&w=1200&h=1500&q=80"
+    ],
     "attrs": {
       "leather": "mouton",
       "lining": "fur",
       "closure": "buttons"
     },
-    "model": null
+    "model": null,
+    "photo": true
   },
   {
     "id": 4,
     "slug": "shkiriane-palto-z-poiasom",
     "category": "coats",
-    "image": "products/c9.webp",
+    "image": "https://images.unsplash.com/photo-1591079886542-53db52add557?auto=format&fit=crop&w=1200&h=1500&q=80",
     "hasHanger": false,
     "price": 12800,
     "oldPrice": 0,
@@ -243,14 +246,15 @@
       "lining": "viscose",
       "closure": "belt"
     },
-    "model": null
+    "model": null,
+    "photo": true
   },
   {
     "id": 8,
     "slug": "shkiriana-sumka-cherez-pleche",
     "category": "bags",
     "type": "bag",
-    "image": "products/bag10.webp",
+    "image": "https://images.unsplash.com/photo-1600857062241-98e5dba7f214?auto=format&fit=crop&w=1200&h=1500&q=80",
     "hasHanger": false,
     "price": 5800,
     "oldPrice": 6800,
@@ -288,13 +292,14 @@
       "lining": "textile",
       "closure": "magnet"
     },
-    "model": null
+    "model": null,
+    "photo": true
   },
   {
     "id": 5,
     "slug": "kurtka-olyvkova",
-    "category": "jackets",
-    "image": "products/c6.webp",
+    "category": "coats",
+    "image": "https://images.unsplash.com/photo-1792775223518-1e55ff9e2959?auto=format&fit=crop&w=1200&h=1500&q=80",
     "hasHanger": false,
     "price": 10000,
     "oldPrice": 0,
@@ -306,58 +311,44 @@
       "XL"
     ],
     "colors": [
-      "#6B6343",
-      "#7A4A2B",
+      "#4B5A3A",
       "#1A1A1C"
     ],
     "code": "FZ-105",
     "name": {
-      "uk": "Куртка оливкового кольору",
-      "en": "Olive jacket",
-      "ru": "Куртка оливкового цвета",
-      "de": "Olivfarbene Jacke",
-      "fr": "Veste olive",
-      "pl": "Oliwkowa kurtka",
-      "tr": "Haki ceket"
+      "uk": "Оливковий шкіряний тренч",
+      "en": "Olive leather trench coat",
+      "ru": "Оливковый кожаный тренч",
+      "de": "Olivfarbener Leder-Trenchcoat",
+      "fr": "Trench en cuir olive",
+      "pl": "Oliwkowy skórzany trencz",
+      "tr": "Haki deri trençkot"
     },
-    "variants": [
-      {
-        "color": "#6B6343",
-        "filter": "none"
-      },
-      {
-        "color": "#7A4A2B",
-        "filter": "hue-rotate(-28deg) saturate(1.6) brightness(.92)"
-      },
-      {
-        "color": "#1A1A1C",
-        "filter": "grayscale(1) brightness(.5) contrast(1.3)"
-      }
-    ],
     "isNew": false,
-    "isFeatured": false,
+    "isFeatured": true,
     "description": {
-      "uk": "Легка куртка оливкового кольору на щодень. Доступна також у коньячному та чорному кольорах.",
-      "en": "A light olive jacket for everyday wear. Also available in cognac and black.",
-      "ru": "Лёгкая куртка оливкового цвета на каждый день. Также доступна в коньячном и чёрном цветах.",
-      "de": "Leichte olivfarbene Jacke für jeden Tag. Auch in Cognac und Schwarz erhältlich.",
-      "fr": "Une veste légère couleur olive pour tous les jours. Existe aussi en cognac et noir.",
-      "pl": "Lekka kurtka w kolorze oliwkowym na co dzień. Dostępna także w kolorze koniakowym i czarnym.",
-      "tr": "Günlük kullanım için hafif haki ceket. Konyak ve siyah renkleri de mevcut."
+      "uk": "Подовжений тренч із м’якої шкіри глибокого оливкового відтінку. Пояс, широкі лацкани та вільний крій — акцент будь-якого образу.",
+      "en": "A long trench coat in soft leather of a deep olive shade. Belt, wide lapels and a relaxed cut — the statement piece of any look.",
+      "ru": "Удлинённый тренч из мягкой кожи глубокого оливкового оттенка. Пояс, широкие лацканы и свободный крой — акцент любого образа.",
+      "de": "Langer Trenchcoat aus weichem Leder in tiefem Oliv. Gürtel, breites Revers und lockerer Schnitt – das Statement jedes Looks.",
+      "fr": "Un long trench en cuir souple d’un olive profond. Ceinture, larges revers et coupe ample — la pièce forte de toute tenue.",
+      "pl": "Długi trencz z miękkiej skóry w głębokim odcieniu oliwki. Pasek, szerokie klapy i luźny krój — mocny akcent każdej stylizacji.",
+      "tr": "Derin haki tonunda yumuşak deriden uzun trençkot. Kemer, geniş yakalar ve rahat kesim — her kombinin yıldızı."
     },
     "images": [],
     "attrs": {
-      "leather": "sheep",
-      "lining": "textile",
-      "closure": "zip"
+      "leather": "lamb",
+      "lining": "viscose",
+      "closure": "belt"
     },
-    "model": null
+    "model": null,
+    "photo": true
   },
   {
     "id": 6,
     "slug": "chorne-shkiriane-palto",
-    "category": "coats",
-    "image": "products/c34.webp",
+    "category": "jackets",
+    "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=1200&h=1500&q=80",
     "hasHanger": false,
     "price": 9500,
     "oldPrice": 0,
@@ -369,35 +360,39 @@
       "L"
     ],
     "colors": [
-      "#141416"
+      "#1A1A1C"
     ],
     "code": "FZ-106",
     "name": {
-      "uk": "Чорне шкіряне пальто",
-      "en": "Black leather coat",
-      "ru": "Чёрное кожаное пальто",
-      "de": "Schwarzer Ledermantel",
-      "fr": "Manteau en cuir noir",
-      "pl": "Czarny płaszcz skórzany",
-      "tr": "Siyah deri kaban"
+      "uk": "Чорна байкерська куртка",
+      "en": "Black leather biker jacket",
+      "ru": "Чёрная байкерская куртка",
+      "de": "Schwarze Leder-Bikerjacke",
+      "fr": "Perfecto en cuir noir",
+      "pl": "Czarna skórzana ramoneska",
+      "tr": "Siyah deri biker ceket"
     },
     "isNew": false,
     "isFeatured": false,
     "description": {
-      "uk": "Строге чорне пальто з гладкої шкіри, яке легко поєднати і з костюмом, і з джинсами.",
-      "en": "A sleek black coat in smooth leather that pairs as easily with a suit as with jeans.",
-      "ru": "Строгое чёрное пальто из гладкой кожи, которое легко сочетать и с костюмом, и с джинсами.",
-      "de": "Schlichter schwarzer Mantel aus Glattleder – passt zum Anzug ebenso wie zur Jeans.",
-      "fr": "Un manteau noir épuré en cuir lisse, aussi élégant avec un costume qu’avec un jean.",
-      "pl": "Elegancki czarny płaszcz z gładkiej skóry, który pasuje zarówno do garnituru, jak i do dżinsów.",
-      "tr": "Hem takım elbiseyle hem kotla kolayca kombinlenen, düz deriden sade siyah kaban."
+      "uk": "Класична байкерська куртка з щільної шкіри: косий замок, металева фурнітура, пояс на пряжці. Річ, яка не виходить з моди.",
+      "en": "A classic biker jacket in dense leather: asymmetric zip, metal hardware, buckled belt. A piece that never goes out of style.",
+      "ru": "Классическая байкерская куртка из плотной кожи: косая молния, металлическая фурнитура, пояс на пряжке. Вещь, которая не выходит из моды.",
+      "de": "Klassische Bikerjacke aus festem Leder: asymmetrischer Reißverschluss, Metallbeschläge, Schnallengürtel. Ein Stück, das nie aus der Mode kommt.",
+      "fr": "Un perfecto classique en cuir épais : zip asymétrique, finitions métal, ceinture à boucle. Une pièce intemporelle.",
+      "pl": "Klasyczna ramoneska z grubej skóry: skośny zamek, metalowe okucia, pasek ze sprzączką. Rzecz, która nigdy nie wychodzi z mody.",
+      "tr": "Kalın deriden klasik biker ceket: çapraz fermuar, metal aksesuar, tokalı kemer. Modası hiç geçmeyen bir parça."
     },
-    "images": [],
+    "images": [
+      "https://images.unsplash.com/photo-1592158249887-ac6ae7921691?auto=format&fit=crop&w=1200&h=1500&q=80",
+      "https://images.unsplash.com/photo-1511280303142-0051e93baeeb?auto=format&fit=crop&w=1200&h=1500&q=80"
+    ],
     "attrs": {
-      "leather": "sheep",
-      "lining": "viscose",
-      "closure": "buttons"
+      "leather": "cow",
+      "lining": "textile",
+      "closure": "zip"
     },
-    "model": null
+    "model": null,
+    "photo": true
   }
 ]

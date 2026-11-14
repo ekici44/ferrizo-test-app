@@ -288,7 +288,8 @@ function newInHTML() {
 
 function atelierHTML() {
   const steps = t('atelier_s');
-  const pics = state.products.slice(0, 3);
+  const W = (id) => 'https://images.unsplash.com/photo-' + id + '?auto=format&fit=crop&w=900&h=1100&q=80';
+  const pics = [W('1793502618517-e888f447ee42'), W('1787070534639-8fc823677aff'), W('1644258676710-ffb99d7d7a1b')];
   return `<section class="atelier" id="about">
     <div class="atelier__inner">
       <div class="atelier__head reveal">
@@ -296,7 +297,7 @@ function atelierHTML() {
         <h2 class="atelier__title">${esc(t('about_title'))}</h2>
         <p class="atelier__text">${esc(t('about_text'))} ${esc(t('atelier_d'))}</p>
       </div>
-      <div class="atelier__pics reveal" aria-hidden="true">${pics.map((p) => `<img src="${esc(p.image)}" alt="" loading="lazy">`).join('')}</div>
+      <div class="atelier__pics reveal" aria-hidden="true">${pics.map((src) => `<img src="${esc(src)}" alt="" loading="lazy">`).join('')}</div>
       <ol class="atelier__steps">${(Array.isArray(steps) ? steps : []).map(([h, d], i) => `<li class="reveal"><span class="step__n">0${i + 1}</span><h3>${esc(h)}</h3><p>${esc(d)}</p></li>`).join('')}</ol>
     </div>
   </section>`;
