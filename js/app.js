@@ -1,4 +1,4 @@
-import { LANGS, T } from './i18n.js?v=2611142337';
+import { LANGS, T } from './i18n.js?v=2611142344';
 
 /* ---------------- Ayarlar ---------------- */
 const PHONE = '+380970400353';
@@ -188,10 +188,11 @@ function priceHTML(p) {
 
 function cardHTML(p) {
   const colors = p.colors || [];
-  return `<a class="pcard reveal" href="#/product/${esc(p.slug)}">
+  return `<a class="pcard reveal${p.images && p.images[0] ? ' has-alt' : ''}" href="#/product/${esc(p.slug)}">
     <div class="pcard__media">
       <div class="pcard__badges">${badgesOf(p)}</div>
-      <img src="${esc(p.image)}" alt="${esc(nameOf(p))}" loading="lazy" decoding="async" draggable="false" width="600" height="750">
+      <img class="pcard__main" src="${esc(p.image)}" alt="${esc(nameOf(p))}" loading="lazy" decoding="async" draggable="false" width="600" height="750">
+      ${p.images && p.images[0] ? `<img class="pcard__alt" src="${esc(p.images[0])}" alt="" loading="lazy" decoding="async" draggable="false" width="600" height="750">` : ''}
       <span class="pcard__cta" aria-hidden="true">${esc(t('details'))}${ARROW}</span>
     </div>
     <div class="pcard__body">

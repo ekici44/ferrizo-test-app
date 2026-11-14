@@ -634,3 +634,9 @@ body.no-scroll { overflow: hidden; }
 .orb { top: 44%; width: 220px; height: 280px; }
 .orbit__hint { margin-top: 18px; }
 @media (max-width: 900px) { .orb { top: 44%; width: 160px; height: 200px; } }
+/* Beymen tarzı: üzerine gelince ikinci fotoğraf (manken çekimi) */
+.pcard__alt { opacity: 0; z-index: 1; transition: opacity .6s var(--ease), transform 1.1s var(--ease) !important; }
+@media (hover: hover) {
+  .pcard.has-alt:hover .pcard__alt { opacity: 1; }
+  .pcard.has-alt:hover .pcard__main { transform: none; }
+}
