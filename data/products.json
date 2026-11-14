@@ -49,7 +49,7 @@
     },
     "model": null,
     "photo": true,
-    "cutout": "products/c7.webp",
+    "cutout": "",
     "spin": []
   },
   {
@@ -103,7 +103,7 @@
     },
     "model": null,
     "photo": true,
-    "cutout": "products/c69.webp",
+    "cutout": "products/col/jacket_brown.webp",
     "spin": []
   },
   {
@@ -242,7 +242,7 @@
     },
     "model": null,
     "photo": true,
-    "cutout": "products/c83.webp",
+    "cutout": "products/col/shearling.webp",
     "spin": []
   },
   {
@@ -293,7 +293,7 @@
     },
     "model": null,
     "photo": true,
-    "cutout": "products/c9.webp",
+    "cutout": "",
     "spin": []
   },
   {
@@ -309,8 +309,8 @@
     "material": "leather",
     "sizes": [],
     "colors": [
-      "#141416",
-      "#E8A317"
+      "#9A4E2C",
+      "#1A1A1C"
     ],
     "code": "FZ-202",
     "name": {
@@ -341,7 +341,7 @@
     },
     "model": null,
     "photo": true,
-    "cutout": "products/bag10.webp",
+    "cutout": "products/col/bag_sling.webp",
     "spin": []
   },
   {
@@ -392,7 +392,7 @@
     },
     "model": null,
     "photo": true,
-    "cutout": "products/c6.webp",
+    "cutout": "",
     "spin": []
   },
   {
@@ -444,7 +444,145 @@
     },
     "model": null,
     "photo": true,
-    "cutout": "products/c34.webp",
+    "cutout": "products/col/jacket_black.webp",
     "spin": []
+  },
+  {
+    "id": 9,
+    "slug": "shkiriana-sumka-sakvoiazh",
+    "category": "bags",
+    "image": "products/col/bag_hand.webp",
+    "images": [],
+    "photo": true,
+    "cutout": "products/col/bag_hand.webp",
+    "spin": [],
+    "hasHanger": false,
+    "price": 7800,
+    "oldPrice": 0,
+    "stock": "in",
+    "material": "leather",
+    "sizes": [],
+    "colors": [
+      "#8A4B22"
+    ],
+    "code": "FZ-109",
+    "name": {
+      "uk": "Шкіряна сумка-саквояж",
+      "en": "Leather doctor bag",
+      "ru": "Кожаная сумка-саквояж",
+      "de": "Leder-Bügeltasche",
+      "fr": "Sac polochon en cuir",
+      "pl": "Skórzana torba kuferek",
+      "tr": "Deri saklı çanta"
+    },
+    "description": {
+      "uk": "Структурована сумка з глянцевої шкіри коньячного кольору: дві ручки, знімний ремінь і клапан на пряжках.",
+      "en": "A structured bag in glossy cognac leather: two handles, a detachable strap and a buckled flap.",
+      "ru": "Структурированная сумка из глянцевой кожи коньячного цвета: две ручки, съёмный ремень и клапан на пряжках.",
+      "de": "Strukturierte Tasche aus glänzendem cognacfarbenem Leder: zwei Henkel, abnehmbarer Riemen und Schnallenklappe.",
+      "fr": "Un sac structuré en cuir glacé cognac : deux anses, bandoulière amovible et rabat à boucles.",
+      "pl": "Usztywniona torba z błyszczącej skóry w kolorze koniaku: dwa uchwyty, odpinany pasek i klapa na sprzączki.",
+      "tr": "Parlak konyak rengi deriden formlu çanta: iki sap, çıkarılabilir askı ve tokalı kapak."
+    },
+    "isNew": true,
+    "isFeatured": false,
+    "attrs": {
+      "leather": "cow",
+      "lining": "textile",
+      "closure": "zip"
+    },
+    "model": null
+  },
+  {
+    "id": 10,
+    "slug": "sumka-z-priazhkamy",
+    "category": "bags",
+    "image": "products/col/bag_hand2.webp",
+    "images": [],
+    "photo": true,
+    "cutout": "products/col/bag_hand2.webp",
+    "spin": [],
+    "hasHanger": false,
+    "price": 8400,
+    "oldPrice": 9600,
+    "stock": "in",
+    "material": "leather",
+    "sizes": [],
+    "colors": [
+      "#A0602B"
+    ],
+    "code": "FZ-110",
+    "name": {
+      "uk": "Сумка з пряжками",
+      "en": "Buckled leather bag",
+      "ru": "Сумка с пряжками",
+      "de": "Ledertasche mit Schnallen",
+      "fr": "Sac en cuir à boucles",
+      "pl": "Torba ze sprzączkami",
+      "tr": "Tokalı deri çanta"
+    },
+    "description": {
+      "uk": "Містка сумка з м’якої вінтажної шкіри з пряжками та металевими заклепками. Носіть у руці або на плечі.",
+      "en": "A roomy bag in soft vintage leather with buckles and metal studs. Carry by hand or on the shoulder.",
+      "ru": "Вместительная сумка из мягкой винтажной кожи с пряжками и металлическими заклёпками. Носите в руке или на плече.",
+      "de": "Geräumige Tasche aus weichem Vintage-Leder mit Schnallen und Metallnieten. In der Hand oder über der Schulter.",
+      "fr": "Un grand sac en cuir vintage souple, boucles et rivets métalliques. À la main ou à l’épaule.",
+      "pl": "Pojemna torba z miękkiej skóry vintage ze sprzączkami i metalowymi nitami. Do ręki lub na ramię.",
+      "tr": "Tokalı ve metal perçinli, yumuşak vintage deriden geniş çanta. Elde ya da omuzda taşınır."
+    },
+    "isNew": false,
+    "isFeatured": false,
+    "attrs": {
+      "leather": "cow",
+      "lining": "textile",
+      "closure": "zip"
+    },
+    "model": null
+  },
+  {
+    "id": 11,
+    "slug": "shkiriana-sumka-satchel",
+    "category": "bags",
+    "image": "products/col/bag_satchel.webp",
+    "images": [],
+    "photo": true,
+    "cutout": "products/col/bag_satchel.webp",
+    "spin": [],
+    "hasHanger": false,
+    "price": 6900,
+    "oldPrice": 0,
+    "stock": "in",
+    "material": "leather",
+    "sizes": [],
+    "colors": [
+      "#8E8794"
+    ],
+    "code": "FZ-111",
+    "name": {
+      "uk": "Шкіряна сумка-сетчел",
+      "en": "Leather satchel",
+      "ru": "Кожаная сумка-сэтчел",
+      "de": "Leder-Satchel",
+      "fr": "Cartable en cuir",
+      "pl": "Skórzana torba satchel",
+      "tr": "Deri satchel çanta"
+    },
+    "description": {
+      "uk": "Класичний сетчел з фактурної шкіри графітово-лавандового відтінку з двома пряжками та ручкою зверху.",
+      "en": "A classic satchel in textured leather of a graphite-lavender shade, with two buckles and a top handle.",
+      "ru": "Классический сэтчел из фактурной кожи графитово-лавандового оттенка с двумя пряжками и ручкой сверху.",
+      "de": "Klassischer Satchel aus strukturiertem Leder in Graphit-Lavendel, mit zwei Schnallen und Tragegriff.",
+      "fr": "Un cartable classique en cuir grainé gris lavande, deux boucles et poignée.",
+      "pl": "Klasyczna torba satchel z fakturowanej skóry w odcieniu grafitowo-lawendowym, z dwiema sprzączkami i rączką.",
+      "tr": "Grafit-lavanta tonunda dokulu deriden, iki tokalı ve üst saplı klasik satchel çanta."
+    },
+    "isNew": false,
+    "isFeatured": false,
+    "attrs": {
+      "leather": "cow",
+      "lining": "textile",
+      "closure": "buttons"
+    },
+    "model": null
   }
 ]
