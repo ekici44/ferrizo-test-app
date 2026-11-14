@@ -1,4 +1,4 @@
-import { LANGS, T } from './i18n.js';
+import { LANGS, T } from './i18n.js?v=2611142331';
 
 /* ---------------- Ayarlar ---------------- */
 const PHONE = '+380970400353';
