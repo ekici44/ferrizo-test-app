@@ -427,3 +427,37 @@ body.no-scroll { overflow: hidden; }
 .badge--in { background: #E4EFE3; color: #2F5D34; }
 .loader { background: var(--bg); }
 .footer__brand img { border-radius: 50%; box-shadow: 0 0 0 2px color-mix(in srgb, var(--cream) 30%, transparent); }
+
+/* =========================================================
+   KURAL: krem + espresso işin %90'ı; kırmızı yalnızca
+   ana butonda, indirimde ve logoda.
+   ========================================================= */
+:focus-visible { outline-color: var(--ink); }
+.hero__kicker, .orbit__kicker { color: var(--muted); }
+.orbit__kicker { color: var(--cream-muted); }
+.hero2__ring { border-color: var(--ink); opacity: .14; }
+.hero2__label { color: var(--ink); }
+.header__nav a::after { background: var(--ink); }
+.lang__btn:hover, .lang__btn[aria-expanded="true"] { border-color: var(--ink); color: var(--ink); }
+.lang__menu button[aria-selected="true"] { color: var(--ink); }
+.icon-btn:hover { color: var(--ink); background: var(--soft); }
+.menu-btn:hover { color: var(--ink); }
+.about__head::before { background: var(--cream-muted); }
+.fact__num { color: var(--cream-muted); }
+.fact:hover { border-color: color-mix(in srgb, var(--cream) 40%, transparent); }
+.store__num, .drawer__nav a i { color: var(--muted); }
+.store a:hover, .footer__nav a:hover, .footer__links a:hover, .footer__copy a:hover { color: var(--cream-muted); }
+.store a:hover { color: var(--ink); text-decoration: underline; }
+.footer { border-top: 0; }
+.back:hover, .share:hover, .drawer__close:hover { border-color: var(--ink); color: var(--ink); }
+.cat:hover .cat__arrow { color: var(--ink); }
+.drawer__nav a:hover, .drawer__nav a[aria-current="page"] { color: var(--ink); }
+.drawer__langs button.is-on { background: var(--deep); border-color: var(--deep); color: var(--cream); }
+.swatch.is-on, .thumb.is-on { box-shadow: 0 0 0 2px var(--surface), 0 0 0 3.5px var(--ink); }
+.thumb.is-on { border-color: var(--ink); box-shadow: none; }
+.orbit .swatch.is-on { box-shadow: 0 0 0 2px var(--deep), 0 0 0 3.5px var(--cream); }
+.pcard__cta:hover { background: var(--deep); color: var(--cream); }
+.badge--order { background: var(--soft); color: var(--ink); }
+.nf__code { color: var(--ink); opacity: .9; }
+.page a { color: var(--ink); }
+/* Kırmızı kalanlar: .btn--red, .pb--sale, .pct, logo ve FERRIZO yazısı */
