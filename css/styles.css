@@ -640,3 +640,14 @@ body.no-scroll { overflow: hidden; }
   .pcard.has-alt:hover .pcard__alt { opacity: 1; }
   .pcard.has-alt:hover .pcard__main { transform: none; }
 }
+/* Koleksiyon: yalnızca arka planı temizlenmiş ürün fotoğrafları + 360° */
+.orb { width: 260px; height: 330px; top: 46%; }
+.orb img { border-radius: 0; object-fit: contain; box-shadow: none; filter: drop-shadow(10px 22px 22px rgba(0,0,0,.45)); }
+.orb__shadow { display: block; }
+.orb__360 { position: absolute; top: 4px; right: 10px; padding: 5px 9px; border-radius: 12px; background: color-mix(in srgb, var(--cream) 92%, transparent); color: var(--deep); font: 700 10px var(--sans); letter-spacing: .1em; }
+.orb.is-spin { cursor: ew-resize; touch-action: none; }
+.orb.is-spin::after { content: ''; position: absolute; left: 20%; right: 20%; bottom: -26px; height: 2px; border-radius: 2px; background: linear-gradient(90deg, var(--cream) calc(var(--spin-load, 0) * 100%), color-mix(in srgb, var(--cream) 20%, transparent) 0); transition: opacity .4s; }
+.orb.is-spin-ready::after { opacity: 0; }
+.op__spin { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 13px; color: var(--cream-muted); }
+.op__spin span { flex: none; padding: 5px 9px; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--cream) 40%, transparent); color: var(--cream); font-size: 10px; font-weight: 700; letter-spacing: .1em; }
+@media (max-width: 900px) { .orb { width: 180px; height: 228px; } }

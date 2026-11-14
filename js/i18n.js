@@ -427,3 +427,14 @@ const EXTRA2 = {
   }
 };
 for (const k in EXTRA2) Object.assign(T[k], EXTRA2[k]);
+
+const EXTRA3 = {
+  uk: { spin_hint: 'Перетягніть виріб, щоб обернути його на 360°' },
+  en: { spin_hint: 'Drag the piece to rotate it 360°' },
+  ru: { spin_hint: 'Потяните изделие, чтобы повернуть его на 360°' },
+  de: { spin_hint: 'Ziehen Sie das Stück, um es um 360° zu drehen' },
+  fr: { spin_hint: 'Faites glisser la pièce pour la tourner à 360°' },
+  pl: { spin_hint: 'Przeciągnij produkt, aby obrócić go o 360°' },
+  tr: { spin_hint: 'Ürünü sürükleyerek 360° döndürün' }
+};
+for (const k in EXTRA3) Object.assign(T[k], EXTRA3[k]);

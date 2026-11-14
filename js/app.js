@@ -1,4 +1,4 @@
-import { LANGS, T } from './i18n.js?v=2611142344';
+import { LANGS, T } from './i18n.js?v=2611142357';
 
 /* ---------------- Ayarlar ---------------- */
 const PHONE = '+380970400353';
@@ -629,8 +629,39 @@ function toast(msg) {
 /* ---------------- Koleksiyon: yörünge vitrini ---------------- */
 let orbit = null;
 
+/* ---------------- 360° döndürme ---------------- */
+// Ürünün "spin" alanındaki kareleri (24 ya da 36 kare, eşit açı aralığıyla çekilmiş,
+// arka planı temizlenmiş) sürükleyerek döndürür.
+function startSpin(el, frames, onReady) {
+  const img = el.querySelector('img');
+  const n = frames.length;
+  let idx = 0, loaded = 0, auto = !reduceMotion(), drag = false, lastX = 0, acc = 0, timer = 0, dead = false;
+  const imgs = frames.map((src) => { const im = new Image(); im.decoding = 'async'; im.onload = im.onerror = () => { loaded++; el.style.setProperty('--spin-load', String(loaded / n)); if (loaded === n) { el.classList.add('is-spin-ready'); if (onReady) onReady(); } }; im.src = src; return im; });
+  el.classList.add('is-spin');
+  const show = (k) => { idx = ((k % n) + n) % n; if (imgs[idx].complete) img.src = frames[idx]; };
+  const loop = () => { if (dead) return; if (auto && loaded === n) show(idx + 1); timer = setTimeout(loop, 1000 / 14); };
+  loop();
+  const down = (e) => { drag = true; auto = false; lastX = e.clientX; acc = 0; el.setPointerCapture && el.setPointerCapture(e.pointerId); e.stopPropagation(); };
+  const move = (e) => { if (!drag) return; acc += e.clientX - lastX; lastX = e.clientX; const step = Math.max(6, el.clientWidth / n / 1.2); while (Math.abs(acc) >= step) { show(idx + (acc > 0 ? -1 : 1)); acc -= Math.sign(acc) * step; } e.preventDefault(); };
+  const up = () => { drag = false; };
+  el.addEventListener('pointerdown', down);
+  el.addEventListener('pointermove', move);
+  el.addEventListener('pointerup', up);
+  el.addEventListener('pointercancel', up);
+  return () => {
+    dead = true; clearTimeout(timer);
+    el.removeEventListener('pointerdown', down); el.removeEventListener('pointermove', move);
+    el.removeEventListener('pointerup', up); el.removeEventListener('pointercancel', up);
+    el.classList.remove('is-spin', 'is-spin-ready');
+  };
+}
+
+// Koleksiyonda yalnızca arka planı temizlenmiş ürün fotoğrafı (cutout) ya da 360° serisi olan ürünler gösterilir.
+// Manken / yaşam tarzı fotoğrafları (image, images) burada hiç kullanılmaz.
+const collectionImage = (p) => p.cutout || (p.spin && p.spin[0]) || '';
+
 function renderCollection() {
-  const list = state.products;
+  const list = state.products.filter((p) => collectionImage(p));
   const app = $('#app');
   app.innerHTML = `
   <section class="orbit">
@@ -639,7 +670,7 @@ function renderCollection() {
       <h1 class="orbit__title">${esc(t('orbit_title'))}</h1>
     </div>
     <div class="orbit__stage" id="orbitStage">
-      ${list.map((p, i) => `<button type="button" class="orb" data-i="${i}" aria-label="${esc(nameOf(p))}"><img src="${esc(p.image)}" alt="" draggable="false"><span class="orb__shadow" aria-hidden="true"></span></button>`).join('')}
+      ${list.map((p, i) => `<button type="button" class="orb" data-i="${i}" aria-label="${esc(nameOf(p))}"><img src="${esc(collectionImage(p))}" alt="" draggable="false"><span class="orb__shadow" aria-hidden="true"></span>${p.spin && p.spin.length ? '<span class="orb__360" aria-hidden="true">360°</span>' : ''}</button>`).join('')}
     </div>
     <div class="orbit__hint">${esc(t('drag_hint'))}</div>
     <aside class="orbit__panel" id="orbitPanel" hidden></aside>
@@ -655,7 +686,7 @@ function renderCollection() {
   const TAU = Math.PI * 2;
   const step = TAU / n;
   const still = reduceMotion();
-  let ang = 0, vel = 0, target = null, pendingOpen = -1, openIdx = -1, front = 0;
+  let ang = 0, vel = 0, target = null, pendingOpen = -1, openIdx = -1, front = 0, stopSpin = null;
   let dragging = false, hover = false, moved = false, startX = 0, lastX = 0, raf = 0, t0 = performance.now();
 
   function layout(now) {
@@ -714,6 +745,7 @@ function renderCollection() {
       <span class="badge ${p.stock === 'order' ? 'badge--order' : 'badge--in'}">${esc(p.stock === 'order' ? t('on_order') : t('in_stock'))}</span>
       <h2 class="op__name">${esc(nameOf(p))}</h2>
       <div class="op__price">${priceHTML(p)}</div>
+      ${p.spin && p.spin.length ? `<p class="op__spin"><span>360°</span>${esc(t('spin_hint'))}</p>` : ''}
       ${vars.length > 1 ? `<div><div class="label">${esc(t('color'))}</div><div class="swatches">${vars.map((v, k) => `<button type="button" class="swatch${k === 0 ? ' is-on' : ''}" data-v="${k}" style="background:${esc(v.color)}" aria-label="${esc(t('color'))} ${k + 1}" aria-pressed="${k === 0}"></button>`).join('')}</div></div>` : ''}
       ${p.sizes && p.sizes.length ? `<div><div class="label">${esc(t('sizes'))}</div><div class="pills">${p.sizes.map((sz, k) => `<button type="button" class="pill${k === Math.min(1, p.sizes.length - 1) ? ' is-on' : ''}" data-s="${esc(sz)}">${esc(sz)}</button>`).join('')}</div></div>` : ''}
       <div class="op__actions">
@@ -732,6 +764,7 @@ function renderCollection() {
     panel.querySelectorAll('[data-s]').forEach((b) => b.addEventListener('click', () => {
       panel.querySelectorAll('[data-s]').forEach((x) => x.classList.toggle('is-on', x === b));
     }));
+    if (p.spin && p.spin.length) stopSpin = startSpin(items[i], p.spin);
     panel.querySelector('.op__close').focus({ preventScroll: true });
   }
 
@@ -740,7 +773,8 @@ function renderCollection() {
       const el = items[openIdx];
       const img = el.querySelector('img');
       img.style.filter = '';
-      img.src = list[openIdx].image;
+      if (stopSpin) { stopSpin(); stopSpin = null; }
+      img.src = collectionImage(list[openIdx]);
       el.focus({ preventScroll: true });
     }
     openIdx = -1;
@@ -792,6 +826,7 @@ function renderCollection() {
   orbit = {
     stop() {
       cancelAnimationFrame(raf);
+      if (stopSpin) { stopSpin(); stopSpin = null; }
       window.removeEventListener('pointermove', onMove);
       window.removeEventListener('pointerup', onUp);
       window.removeEventListener('pointercancel', onUp);

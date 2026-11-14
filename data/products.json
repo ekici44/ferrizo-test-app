@@ -48,7 +48,9 @@
       "closure": "buttons"
     },
     "model": null,
-    "photo": true
+    "photo": true,
+    "cutout": "products/c7.webp",
+    "spin": []
   },
   {
     "id": 2,
@@ -100,7 +102,9 @@
       "closure": "zip"
     },
     "model": null,
-    "photo": true
+    "photo": true,
+    "cutout": "products/c69.webp",
+    "spin": []
   },
   {
     "id": 7,
@@ -147,7 +151,46 @@
       "closure": "zip"
     },
     "model": null,
-    "photo": true
+    "photo": true,
+    "cutout": "products/360/tote/01.webp",
+    "spin": [
+      "products/360/tote/01.webp",
+      "products/360/tote/02.webp",
+      "products/360/tote/03.webp",
+      "products/360/tote/04.webp",
+      "products/360/tote/05.webp",
+      "products/360/tote/06.webp",
+      "products/360/tote/07.webp",
+      "products/360/tote/08.webp",
+      "products/360/tote/09.webp",
+      "products/360/tote/10.webp",
+      "products/360/tote/11.webp",
+      "products/360/tote/12.webp",
+      "products/360/tote/13.webp",
+      "products/360/tote/14.webp",
+      "products/360/tote/15.webp",
+      "products/360/tote/16.webp",
+      "products/360/tote/17.webp",
+      "products/360/tote/18.webp",
+      "products/360/tote/19.webp",
+      "products/360/tote/20.webp",
+      "products/360/tote/21.webp",
+      "products/360/tote/22.webp",
+      "products/360/tote/23.webp",
+      "products/360/tote/24.webp",
+      "products/360/tote/25.webp",
+      "products/360/tote/26.webp",
+      "products/360/tote/27.webp",
+      "products/360/tote/28.webp",
+      "products/360/tote/29.webp",
+      "products/360/tote/30.webp",
+      "products/360/tote/31.webp",
+      "products/360/tote/32.webp",
+      "products/360/tote/33.webp",
+      "products/360/tote/34.webp",
+      "products/360/tote/35.webp",
+      "products/360/tote/36.webp"
+    ]
   },
   {
     "id": 3,
@@ -198,7 +241,9 @@
       "closure": "buttons"
     },
     "model": null,
-    "photo": true
+    "photo": true,
+    "cutout": "products/c83.webp",
+    "spin": []
   },
   {
     "id": 4,
@@ -247,7 +292,9 @@
       "closure": "belt"
     },
     "model": null,
-    "photo": true
+    "photo": true,
+    "cutout": "products/c9.webp",
+    "spin": []
   },
   {
     "id": 8,
@@ -293,7 +340,9 @@
       "closure": "magnet"
     },
     "model": null,
-    "photo": true
+    "photo": true,
+    "cutout": "products/bag10.webp",
+    "spin": []
   },
   {
     "id": 5,
@@ -342,7 +391,9 @@
       "closure": "belt"
     },
     "model": null,
-    "photo": true
+    "photo": true,
+    "cutout": "products/c6.webp",
+    "spin": []
   },
   {
     "id": 6,
@@ -392,6 +443,8 @@
       "closure": "zip"
     },
     "model": null,
-    "photo": true
+    "photo": true,
+    "cutout": "products/c34.webp",
+    "spin": []
   }
 ]

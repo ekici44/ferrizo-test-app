@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>FERRIZO — Перевірка фото для колекції</title>
+<link rel="icon" href="../logo.svg" type="image/svg+xml">
+<style>
+:root{--bg:#FAF6F0;--surface:#FFFDF9;--soft:#F1E9DE;--ink:#2A1D16;--muted:#7A6C61;--line:#E6DBCD;--red:#C8161D;--ok:#2F5D34;--okbg:#E4EFE3;--warn:#8A5A00;--warnbg:#FBF0D9;--errbg:#FBE4E2}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:28px 16px 80px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}.brand img{width:40px;height:40px}.brand b{font-style:italic;font-weight:800;color:var(--red);font-size:20px;letter-spacing:.04em}
+.lang button{border:1px solid var(--line);background:var(--surface);border-radius:16px;padding:6px 12px;font-weight:700;cursor:pointer}.lang button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+h1{font-family:Georgia,serif;font-weight:500;font-size:34px;line-height:1.1;margin:24px 0 8px}
+.lead{color:var(--muted);margin:0 0 20px;max-width:720px}
+.tabs{display:flex;gap:8px;margin:18px 0}.tabs button{flex:1;min-height:52px;border:1px solid var(--line);background:var(--surface);border-radius:14px;font-weight:700;cursor:pointer;font-size:14px}.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.rules{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-bottom:16px}.rules h2{margin:0 0 8px;font-size:15px}.rules ul{margin:0;padding-left:20px}.rules li{margin:3px 0}
+.drop{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:170px;border:2px dashed #CDBFAE;border-radius:18px;background:var(--surface);text-align:center;padding:20px;cursor:pointer;transition:.2s}
+.drop.over{border-color:var(--ink);background:var(--soft)}.drop b{font-size:16px}.drop span{color:var(--muted);font-size:13px}
+.summary{margin:18px 0;padding:16px 18px;border-radius:14px;font-weight:600;display:none}.summary.ok{display:block;background:var(--okbg);color:var(--ok)}.summary.bad{display:block;background:var(--errbg);color:var(--red)}.summary.warn{display:block;background:var(--warnbg);color:var(--warn)}
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.item .pic{height:200px;background:repeating-conic-gradient(#eee 0 25%,#fff 0 50%) 50%/16px 16px;display:flex;align-items:center;justify-content:center}.item .pic img{max-width:100%;max-height:100%}
+.item .meta{padding:10px 12px;font-size:12px}.item .name{font-weight:700;word-break:break-all;margin-bottom:6px}
+.msg{display:flex;gap:6px;margin:3px 0}.msg.ok{color:var(--ok)}.msg.err{color:var(--red)}.msg.warn{color:var(--warn)}
+.spinprev{display:none;margin:18px 0;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;text-align:center}
+.spinprev img{height:320px;max-width:100%;cursor:ew-resize;touch-action:none;user-select:none}
+.out{display:none;margin-top:16px}.out textarea{width:100%;height:120px;font:12px monospace;border:1px solid var(--line);border-radius:12px;padding:10px}
+.note{font-size:12px;color:var(--muted);margin-top:24px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand"><img src="../logo.svg" alt=""><b>FERRIZO</b></div>
+    <div class="lang"><button data-l="uk" class="on">UA</button> <button data-l="tr">TR</button></div>
+  </header>
+
+  <h1 data-t="title"></h1>
+  <p class="lead" data-t="lead"></p>
+
+  <div class="tabs">
+    <button data-mode="cutout" class="on" data-t="tab1"></button>
+    <button data-mode="spin" data-t="tab2"></button>
+  </div>
+
+  <div class="rules"><h2 data-t="rules_h"></h2><ul id="rules"></ul></div>
+
+  <label class="drop" id="drop">
+    <b data-t="drop"></b><span data-t="drop_sub"></span>
+    <input type="file" id="file" accept="image/png,image/webp" multiple hidden>
+  </label>
+
+  <div class="summary" id="summary"></div>
+  <div class="spinprev" id="spinprev"><img id="spinimg" alt=""><div data-t="spin_try" style="color:var(--muted);font-size:13px;margin-top:6px"></div></div>
+  <div class="list" id="list"></div>
+  <div class="out" id="out"><p data-t="out_h"></p><textarea id="outtxt" readonly></textarea></div>
+  <p class="note" data-t="note"></p>
+</div>
+
+<script>
+const TXT = {
+  uk: {
+    title: 'Перевірка фото для колекції',
+    lead: 'У розділі «Колекції» показуються лише фото виробу без фону та 360°-серії. Фото на моделі сюди не потрапляють — їх додавайте до каталогу. Перетягніть файли нижче, щоб перевірити їх перед завантаженням.',
+    tab1: 'Фото без фону (1 файл)', tab2: '360° серія (24 або 36 файлів)',
+    rules_h: 'Вимоги',
+    r_cutout: ['Формат PNG або WebP з прозорим фоном.', 'Лише виріб — без людини чи манекена.', 'Мінімум 800 × 1000 пікселів, вертикальне фото (≈ 4:5).', 'Виріб займає більшу частину кадру, не обрізаний по краях.'],
+    r_spin: ['24 кадри (кожні 15°) або 36 кадрів (кожні 10°) — повне коло 360°.', 'Знімайте на поворотному столику: камера нерухома, однакове світло, однакова відстань.', 'Усі кадри одного розміру, PNG або WebP з прозорим фоном.', 'Називайте файли по порядку: 01, 02, 03 …', 'Без людини чи манекена в кадрі.'],
+    drop: 'Перетягніть файли сюди або натисніть, щоб вибрати', drop_sub: 'PNG або WebP',
+    spin_try: 'Перетягніть зображення, щоб перевірити обертання',
+    out_h: 'Усе гаразд. Цей список файлів можна передати адміністратору сайту:',
+    note: 'Перевірка виконується лише у вашому браузері — файли нікуди не надсилаються.',
+    ok: 'Усе гаразд — фото підходить для колекції.', okSpin: 'Усе гаразд — серія підходить для 360°.',
+    bad: 'Є помилки — виправте їх перед завантаженням.', warn: 'Є зауваження — перевірте ще раз.',
+    e_type: 'Формат не PNG/WebP', e_alpha: 'Фон не прозорий — видаліть фон', e_size: 'Замало пікселів (мін. 800 × 1000)', e_ratio: 'Фото не вертикальне (потрібно ≈ 4:5)',
+    e_person: 'У кадрі людина або манекен — для колекції потрібне фото лише виробу', w_small: 'Виріб займає замало місця в кадрі', w_edge: 'Виріб торкається краю — можливо, обрізаний',
+    w_person_skip: 'Перевірку на людину пропущено (немає з’єднання)', ok_item: 'Підходить',
+    e_count: 'Потрібно 24 або 36 кадрів, а завантажено: ', e_dims: 'Кадри різного розміру', w_jump: 'Різкий стрибок розміру виробу між кадрами — перевірте відстань до камери',
+    one_only: 'Для цього режиму потрібен один файл.'
+  },
+  tr: {
+    title: 'Koleksiyon fotoğraf kontrolü',
+    lead: '"Koleksiyonlar" bölümünde yalnızca arka planı silinmiş ürün fotoğrafları ve 360° serileri gösterilir. Manken fotoğrafları buraya girmez, onları kataloğa ekleyin. Yüklemeden önce dosyaları aşağıya sürükleyip kontrol edin.',
+    tab1: 'Arka plansız fotoğraf (1 dosya)', tab2: '360° seri (24 veya 36 dosya)',
+    rules_h: 'Kurallar',
+    r_cutout: ['PNG veya WebP, arka planı şeffaf.', 'Sadece ürün — insan veya manken olmasın.', 'En az 800 × 1000 piksel, dikey fotoğraf (≈ 4:5).', 'Ürün kadrin çoğunu kaplasın, kenarlardan kesilmesin.'],
+    r_spin: ['24 kare (her 15°) veya 36 kare (her 10°) — tam 360° tur.', 'Döner tablada çekin: kamera sabit, ışık ve mesafe aynı.', 'Tüm kareler aynı boyutta, PNG veya WebP, arka plan şeffaf.', 'Dosyalar sırayla adlandırılsın: 01, 02, 03 …', 'Kadrede insan veya manken olmasın.'],
+    drop: 'Dosyaları buraya sürükleyin ya da tıklayıp seçin', drop_sub: 'PNG veya WebP',
+    spin_try: 'Dönüşü denemek için görseli sürükleyin',
+    out_h: 'Her şey uygun. Bu dosya listesi site yöneticisine iletilebilir:',
+    note: 'Kontrol yalnızca tarayıcınızda yapılır — dosyalar hiçbir yere gönderilmez.',
+    ok: 'Her şey uygun — fotoğraf koleksiyon için hazır.', okSpin: 'Her şey uygun — seri 360° için hazır.',
+    bad: 'Hatalar var — yüklemeden önce düzeltin.', warn: 'Uyarılar var — tekrar kontrol edin.',
+    e_type: 'Format PNG/WebP değil', e_alpha: 'Arka plan şeffaf değil — arka planı silin', e_size: 'Çözünürlük düşük (en az 800 × 1000)', e_ratio: 'Fotoğraf dikey değil (≈ 4:5 olmalı)',
+    e_person: 'Kadrede insan veya manken var — koleksiyon için sadece ürün fotoğrafı gerekli', w_small: 'Ürün kadrede çok küçük kalıyor', w_edge: 'Ürün kenara değiyor — kesilmiş olabilir',
+    w_person_skip: 'İnsan kontrolü atlandı (bağlantı yok)', ok_item: 'Uygun',
+    e_count: '24 veya 36 kare gerekli, yüklenen: ', e_dims: 'Kareler farklı boyutta', w_jump: 'Kareler arasında ürün boyutu ani değişiyor — kamera mesafesini kontrol edin',
+    one_only: 'Bu mod için tek dosya gerekli.'
+  }
+};
+let L = 'uk', mode = 'cutout', lastRun = null;
+const $ = (s) => document.querySelector(s);
+const t = (k) => TXT[L][k];
+function applyLang() {
+  document.documentElement.lang = L;
+  document.querySelectorAll('[data-t]').forEach((e) => { e.textContent = t(e.dataset.t); });
+  $('#rules').innerHTML = t(mode === 'spin' ? 'r_spin' : 'r_cutout').map((r) => `<li>${r}</li>`).join('');
+  document.querySelectorAll('.lang button').forEach((b) => b.classList.toggle('on', b.dataset.l === L));
+  if (lastRun) lastRun();
+}
+document.querySelectorAll('.lang button').forEach((b) => b.onclick = () => { L = b.dataset.l; applyLang(); });
+document.querySelectorAll('.tabs button').forEach((b) => b.onclick = () => {
+  mode = b.dataset.mode; document.querySelectorAll('.tabs button').forEach((x) => x.classList.toggle('on', x === b));
+  reset(); applyLang();
+});
+function reset() { $('#list').innerHTML = ''; $('#summary').className = 'summary'; $('#spinprev').style.display = 'none'; $('#out').style.display = 'none'; lastRun = null; }
+
+// ---- Kişi algılama (TensorFlow.js COCO-SSD, tarayıcıda çalışır) ----
+let detector = null, detectorFailed = false;
+function loadScript(src) { return new Promise((res, rej) => { const s = document.createElement('script'); s.src = src; s.onload = res; s.onerror = rej; document.head.appendChild(s); }); }
+async function getDetector() {
+  if (detector || detectorFailed) return detector;
+  try {
+    await loadScript('https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js');
+    await loadScript('https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.2.3/dist/coco-ssd.min.js');
+    detector = await window.cocoSsd.load({ base: 'lite_mobilenet_v2' });
+  } catch (e) { detectorFailed = true; }
+  return detector;
+}
+
+// ---- Tek görsel analizi ----
+function loadImg(file) { return new Promise((res, rej) => { const u = URL.createObjectURL(file); const im = new Image(); im.onload = () => res({ im, url: u }); im.onerror = rej; im.src = u; }); }
+async function analyse(file, opts = {}) {
+  const r = { file, errs: [], warns: [] };
+  if (!/image\/(png|webp)/.test(file.type)) r.errs.push('e_type');
+  let im, url;
+  try { ({ im, url } = await loadImg(file)); } catch (e) { r.errs.push('e_type'); return r; }
+  r.url = url; r.w = im.naturalWidth; r.h = im.naturalHeight;
+  if (r.w < 800 || r.h < 1000) r.errs.push('e_size');
+  const ratio = r.w / r.h; if (ratio > 0.9 || ratio < 0.6) r.errs.push('e_ratio');
+  // şeffaflık ve ürün sınırları (küçültülmüş kopya üzerinde)
+  const S = 200, sh = Math.round(S * r.h / r.w), c = document.createElement('canvas'); c.width = S; c.height = sh;
+  const x = c.getContext('2d'); x.drawImage(im, 0, 0, S, sh); const d = x.getImageData(0, 0, S, sh).data;
+  let border = 0, borderT = 0, minX = S, minY = sh, maxX = -1, maxY = -1;
+  for (let y = 0; y < sh; y++) for (let i = 0; i < S; i++) {
+    const a = d[(y * S + i) * 4 + 3];
+    const isB = y < 3 || y >= sh - 3 || i < 3 || i >= S - 3;
+    if (isB) { border++; if (a < 20) borderT++; }
+    if (a > 40) { if (i < minX) minX = i; if (i > maxX) maxX = i; if (y < minY) minY = y; if (y > maxY) maxY = y; }
+  }
+  const transp = borderT / border;
+  if (transp < 0.85) r.errs.push('e_alpha');
+  else {
+    r.boxH = (maxY - minY + 1) / sh; r.boxW = (maxX - minX + 1) / S;
+    if (r.boxH < 0.55 && r.boxW < 0.55) r.warns.push('w_small');
+    if (minX <= 1 || minY <= 1 || maxX >= S - 2 || maxY >= sh - 2) r.warns.push('w_edge');
+  }
+  // insan / manken kontrolü (beyaz zemine yerleştirip)
+  if (!opts.skipPerson) {
+    const det = await getDetector();
+    if (det) {
+      const c2 = document.createElement('canvas'); c2.width = 480; c2.height = Math.round(480 * r.h / r.w);
+      const x2 = c2.getContext('2d'); x2.fillStyle = '#fff'; x2.fillRect(0, 0, c2.width, c2.height); x2.drawImage(im, 0, 0, c2.width, c2.height);
+      const preds = await det.detect(c2);
+      if (preds.some((p) => p.class === 'person' && p.score > 0.5)) r.errs.push('e_person');
+    } else r.warns.push('w_person_skip');
+  }
+  return r;
+}
+
+function msgList(r) {
+  const out = r.errs.map((k) => `<div class="msg err">✕ ${t(k)}</div>`).concat(r.warns.map((k) => `<div class="msg warn">! ${t(k)}</div>`));
+  return out.length ? out.join('') : `<div class="msg ok">✓ ${t('ok_item')}</div>`;
+}
+function renderItems(rs) {
+  $('#list').innerHTML = rs.map((r) => `<div class="item"><div class="pic">${r.url ? `<img src="${r.url}" alt="">` : ''}</div><div class="meta"><div class="name">${r.file.name}${r.w ? ` · ${r.w}×${r.h}` : ''}</div>${msgList(r)}</div></div>`).join('');
+}
+function summary(kind, extra = '') { const s = $('#summary'); s.className = 'summary ' + kind; s.textContent = (kind === 'ok' ? t(mode === 'spin' ? 'okSpin' : 'ok') : t(kind)) + extra; }
+
+async function run(files) {
+  reset();
+  files = [...files].sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }));
+  if (mode === 'cutout') {
+    if (files.length !== 1) { summary('bad', ' ' + t('one_only')); return; }
+    const r = await analyse(files[0]);
+    lastRun = () => { renderItems([r]); summary(r.errs.length ? 'bad' : r.warns.length ? 'warn' : 'ok'); };
+    lastRun(); return;
+  }
+  // 360° seri: insan kontrolü 4 karede yeterli (0°, 90°, 180°, 270°)
+  const q = [0, 0.25, 0.5, 0.75].map((f) => Math.floor(f * files.length));
+  const rs = [];
+  for (let i = 0; i < files.length; i++) rs.push(await analyse(files[i], { skipPerson: !q.includes(i) }));
+  const global = [];
+  if (![24, 36].includes(files.length)) global.push(() => t('e_count') + files.length);
+  const dims = new Set(rs.filter((r) => r.w).map((r) => r.w + 'x' + r.h)); if (dims.size > 1) global.push(() => t('e_dims'));
+  let jump = false; for (let i = 1; i < rs.length; i++) if (rs[i].boxH && rs[i - 1].boxH && Math.abs(rs[i].boxH - rs[i - 1].boxH) > 0.12) jump = true;
+  const anyErr = global.length || rs.some((r) => r.errs.length);
+  const anyWarn = jump || rs.some((r) => r.warns.length);
+  lastRun = () => {
+    renderItems(rs);
+    const extra = (global.length ? ' — ' + global.map((f) => f()).join(' · ') : '') + (jump ? ' — ' + t('w_jump') : '');
+    summary(anyErr ? 'bad' : anyWarn ? 'warn' : 'ok', extra);
+  };
+  lastRun();
+  // önizleme: sürükleyerek döndür
+  const urls = rs.map((r) => r.url).filter(Boolean);
+  if (urls.length > 1) {
+    const box = $('#spinprev'), img = $('#spinimg'); box.style.display = 'block'; img.src = urls[0];
+    let k = 0, drag = false, lx = 0, acc = 0;
+    img.onpointerdown = (e) => { drag = true; lx = e.clientX; img.setPointerCapture(e.pointerId); };
+    img.onpointermove = (e) => { if (!drag) return; acc += e.clientX - lx; lx = e.clientX; while (Math.abs(acc) > 8) { k = (k + (acc > 0 ? -1 : 1) + urls.length) % urls.length; acc -= Math.sign(acc) * 8; } img.src = urls[k]; };
+    img.onpointerup = () => { drag = false; };
+  }
+  if (!anyErr) { $('#out').style.display = 'block'; $('#outtxt').value = JSON.stringify(files.map((f) => f.name), null, 1); }
+}
+
+const drop = $('#drop'), inp = $('#file');
+inp.onchange = () => run(inp.files);
+['dragenter', 'dragover'].forEach((ev) => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.add('over'); }));
+['dragleave', 'drop'].forEach((ev) => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.remove('over'); }));
+drop.addEventListener('drop', (e) => run(e.dataTransfer.files));
+applyLang();
+getDetector(); // modeli önceden yükle
+</script>
+</body>
+</html>
