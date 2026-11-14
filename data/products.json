@@ -39,7 +39,13 @@
       "pl": "Klasyczny dwurzędowy płaszcz z miękkiej skóry naturalnej. Szerokie klapy, głębokie kieszenie i podszewka z wiskozy — na chłodną jesień w mieście.",
       "tr": "Yumuşak hakiki deriden klasik kruvaze kaban. Geniş yakalar, derin cepler ve viskon astar — serin sonbahar günleri ve şehir için."
     },
-    "images": []
+    "images": [],
+    "attrs": {
+      "leather": "sheep",
+      "lining": "viscose",
+      "closure": "buttons"
+    },
+    "model": null
   },
   {
     "id": 2,
@@ -92,7 +98,13 @@
       "pl": "Kurtka vintage z wyraźną fakturą skóry, która z latami staje się tylko piękniejsza. Prosty krój, metalowe okucia.",
       "tr": "Yıllar geçtikçe daha da güzelleşen belirgin deri dokulu vintage ceket. Düz kesim, metal aksesuarlar."
     },
-    "images": []
+    "images": [],
+    "attrs": {
+      "leather": "cow",
+      "lining": "textile",
+      "closure": "zip"
+    },
+    "model": null
   },
   {
     "id": 7,
@@ -130,7 +142,13 @@
       "pl": "Pojemna pikowana torba typu tote ze skóry. Mieści laptopa, wewnętrzna kieszeń na zamek.",
       "tr": "Geniş kapitone deri tote çanta. Dizüstü bilgisayar sığar, içinde fermuarlı cep var."
     },
-    "images": []
+    "images": [],
+    "attrs": {
+      "leather": "cow",
+      "lining": "textile",
+      "closure": "zip"
+    },
+    "model": null
   },
   {
     "id": 3,
@@ -171,7 +189,13 @@
       "pl": "Ciepły kożuch z naturalnego futra na prawdziwą zimę. Futrzany kołnierz i mankiety, dopasowany krój.",
       "tr": "Gerçek kışlar için doğal kürklü sıcak kaban. Kürk yaka ve manşetler, oturan kesim."
     },
-    "images": []
+    "images": [],
+    "attrs": {
+      "leather": "mouton",
+      "lining": "fur",
+      "closure": "buttons"
+    },
+    "model": null
   },
   {
     "id": 4,
@@ -213,7 +237,13 @@
       "pl": "Długi płaszcz z paskiem podkreślającym sylwetkę. Skóra naturalna, kryte guziki.",
       "tr": "Silueti belirginleştiren kemerli uzun kaban. Hakiki deri, gizli düğmeler."
     },
-    "images": []
+    "images": [],
+    "attrs": {
+      "leather": "lamb",
+      "lining": "viscose",
+      "closure": "belt"
+    },
+    "model": null
   },
   {
     "id": 8,
@@ -252,7 +282,13 @@
       "pl": "Kompaktowa torba na ramię z regulowanym paskiem. Skóra naturalna, dwa kolory.",
       "tr": "Ayarlanabilir askılı kompakt omuz çantası. Hakiki deri, iki renk."
     },
-    "images": []
+    "images": [],
+    "attrs": {
+      "leather": "cow",
+      "lining": "textile",
+      "closure": "magnet"
+    },
+    "model": null
   },
   {
     "id": 5,
@@ -309,7 +345,13 @@
       "pl": "Lekka kurtka w kolorze oliwkowym na co dzień. Dostępna także w kolorze koniakowym i czarnym.",
       "tr": "Günlük kullanım için hafif haki ceket. Konyak ve siyah renkleri de mevcut."
     },
-    "images": []
+    "images": [],
+    "attrs": {
+      "leather": "sheep",
+      "lining": "textile",
+      "closure": "zip"
+    },
+    "model": null
   },
   {
     "id": 6,
@@ -350,6 +392,12 @@
       "pl": "Elegancki czarny płaszcz z gładkiej skóry, który pasuje zarówno do garnituru, jak i do dżinsów.",
       "tr": "Hem takım elbiseyle hem kotla kolayca kombinlenen, düz deriden sade siyah kaban."
     },
-    "images": []
+    "images": [],
+    "attrs": {
+      "leather": "sheep",
+      "lining": "viscose",
+      "closure": "buttons"
+    },
+    "model": null
   }
 ]

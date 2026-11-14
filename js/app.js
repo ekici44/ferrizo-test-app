@@ -201,6 +201,136 @@ function cardHTML(p) {
   </a>`;
 }
 
+
+/* ---------------- Son bakılanlar ---------------- */
+function readRecent() {
+  try { const a = JSON.parse(localStorage.getItem('fz-recent') || '[]'); return Array.isArray(a) ? a : []; } catch (e) { return []; }
+}
+function pushRecent(id) {
+  const a = [id].concat(readRecent().filter((x) => x !== id)).slice(0, 8);
+  try { localStorage.setItem('fz-recent', JSON.stringify(a)); } catch (e) { /* yok */ }
+}
+function recentHTML(exceptId) {
+  const list = readRecent().filter((id) => id !== exceptId).map((id) => state.products.find((p) => p.id === id)).filter(Boolean).slice(0, 6);
+  if (!list.length) return '';
+  return `<section class="recent">
+    <h2 class="section-title section-title--sm">${esc(t('recent'))}</h2>
+    <div class="recent__row">${list.map((o) => `<a class="recent__item" href="#/product/${esc(o.slug)}"><span class="recent__img"><img src="${esc(o.image)}" alt="" loading="lazy"></span><span class="recent__name">${esc(nameOf(o))}</span><span class="recent__price">${money(o.price)}</span></a>`).join('')}</div>
+  </section>`;
+}
+
+/* ---------------- Beden tablosu (genel; firma ölçüleri gelince güncellenecek) ---------------- */
+const SIZE_TABLE = {
+  XS: [44, '88–92', '76–80', '92–96'],
+  S: [46, '92–96', '80–84', '96–100'],
+  M: [48, '96–100', '84–88', '100–104'],
+  L: [50, '100–104', '88–92', '104–108'],
+  XL: [52, '104–108', '92–96', '108–112'],
+  XXL: [54, '108–112', '96–100', '112–116'],
+  '3XL': [56, '112–116', '100–104', '116–120']
+};
+const STORES = [
+  { city: 'city1', addr: 'addr1', link: 'tel:' + PHONE, label: PHONE_TXT },
+  { city: 'city2', addr: 'addr2', link: 'https://instagram.com/ferrizo_ivanofrankivsk', label: '@ferrizo_ivanofrankivsk' },
+  { city: 'city3', addr: 'store_tbd', link: 'https://instagram.com/ionia.ua', label: '@ionia.ua' }
+];
+
+function attrRows(p) {
+  const a = p.attrs || {};
+  const rows = [[t('material'), matOf(p)]];
+  if (a.leather) rows.push([t('a_leather'), t('lt_' + a.leather)]);
+  if (a.lining) rows.push([t('a_lining'), t('ln_' + a.lining)]);
+  if (a.closure) rows.push([t('a_closure'), t('cl_' + a.closure)]);
+  rows.push([t('a_origin'), t('origin_val')], [t('code'), p.code]);
+  return rows.map(([k, v]) => `<div><span>${esc(k)}</span><span>${esc(v)}</span></div>`).join('');
+}
+
+function accordionsHTML(p) {
+  const list = (k) => { const v = t(k); return (Array.isArray(v) ? v : [v]).map((x) => `<li>${esc(x)}</li>`).join(''); };
+  const sizes = (p.sizes || []).filter((s) => SIZE_TABLE[s]);
+  const cols = t('size_cols');
+  const sizeBlock = sizes.length ? `<details class="acc" id="accSize">
+      <summary>${esc(t('acc_size'))}</summary>
+      <div class="acc__body">
+        <div class="sizetable" role="region" aria-label="${esc(t('acc_size'))}" tabindex="0"><table>
+          <thead><tr>${cols.map((c) => `<th scope="col">${esc(c)}</th>`).join('')}</tr></thead>
+          <tbody>${sizes.map((s) => `<tr${s === state.size ? ' class="is-on"' : ''} data-row="${esc(s)}"><th scope="row">${esc(s)}</th>${SIZE_TABLE[s].map((v) => `<td>${v}</td>`).join('')}</tr>`).join('')}</tbody>
+        </table></div>
+        <p class="acc__sub">${esc(t('size_how'))}</p>
+        <ul>${list('size_how_p')}</ul>
+        <p class="acc__note">${esc(t('size_note'))} <a href="${TG_URL}" target="_blank" rel="noopener">Telegram</a></p>
+      </div>
+    </details>` : '';
+  return `<div class="accs">
+    ${sizeBlock}
+    <details class="acc"><summary>${esc(t('acc_delivery'))}</summary><div class="acc__body"><ul>${list('delivery_p')}</ul></div></details>
+    <details class="acc"><summary>${esc(t('acc_care'))}</summary><div class="acc__body"><ul>${list('care_p')}</ul></div></details>
+    <details class="acc"><summary>${esc(t('acc_stores'))}</summary><div class="acc__body">
+      <p>${esc(t('stores_p'))}</p>
+      <ul class="acc__stores">${STORES.map((st) => `<li><b>${esc(t(st.city))}</b><span>${esc(t(st.addr))}</span><a href="${st.link}"${st.link.startsWith('http') ? ' target="_blank" rel="noopener"' : ''}>${esc(st.label)}</a></li>`).join('')}</ul>
+    </div></details>
+  </div>`;
+}
+
+/* ---------------- Ana sayfa bölümleri ---------------- */
+function newInHTML() {
+  let list = state.products.filter((p) => p.isNew);
+  if (list.length < 4) list = list.concat(state.products.filter((p) => !p.isNew)).slice(0, 4);
+  return `<section class="newin">
+    <div class="sec-head reveal">
+      <h2 class="section-title">${esc(t('new_in'))}</h2>
+      <a class="link-arrow" href="#/#shop">${esc(t('see_all'))}${ARROW}</a>
+    </div>
+    <div class="grid grid--row">${list.slice(0, 4).map(cardHTML).join('')}</div>
+  </section>`;
+}
+
+function atelierHTML() {
+  const steps = t('atelier_s');
+  const pics = state.products.slice(0, 3);
+  return `<section class="atelier" id="about">
+    <div class="atelier__inner">
+      <div class="atelier__head reveal">
+        <div class="kicker kicker--light">${esc(t('atelier_k'))}</div>
+        <h2 class="atelier__title">${esc(t('about_title'))}</h2>
+        <p class="atelier__text">${esc(t('about_text'))} ${esc(t('atelier_d'))}</p>
+      </div>
+      <div class="atelier__pics reveal" aria-hidden="true">${pics.map((p) => `<img src="${esc(p.image)}" alt="" loading="lazy">`).join('')}</div>
+      <ol class="atelier__steps">${(Array.isArray(steps) ? steps : []).map(([h, d], i) => `<li class="reveal"><span class="step__n">0${i + 1}</span><h3>${esc(h)}</h3><p>${esc(d)}</p></li>`).join('')}</ol>
+    </div>
+  </section>`;
+}
+
+function mtmHTML() {
+  const steps = t('mtm_steps');
+  return `<section class="mtm" id="made-to-measure">
+    <div class="mtm__inner">
+      <div class="mtm__head reveal">
+        <div class="kicker">${esc(t('mtm_k'))}</div>
+        <h2 class="mtm__title">${esc(t('mtm_t'))}</h2>
+        <p class="mtm__text">${esc(t('mtm_d'))}</p>
+        <a class="btn btn--red" href="${TG_URL}" target="_blank" rel="noopener">${TG}${esc(t('mtm_btn'))}</a>
+      </div>
+      <ol class="mtm__steps">${(Array.isArray(steps) ? steps : []).map(([h, d], i) => `<li class="reveal"><span class="mtm__n">${i + 1}</span><div><h3>${esc(h)}</h3><p>${esc(d)}</p></div></li>`).join('')}</ol>
+    </div>
+  </section>`;
+}
+
+function guideHTML() {
+  const items = t('guide_items');
+  const tips = t('care_tips');
+  return `<section class="guide" id="guide">
+    <div class="guide__inner">
+      <div class="kicker reveal">${esc(t('guide_k'))}</div>
+      <h2 class="section-title reveal">${esc(t('guide_t'))}</h2>
+      <div class="guide__grid">
+        ${(Array.isArray(items) ? items : []).map(([h, d]) => `<div class="gcard reveal"><h3>${esc(h)}</h3><p>${esc(d)}</p></div>`).join('')}
+        <div class="gcard gcard--care reveal"><h3>${esc(t('care_title'))}</h3><ul>${(Array.isArray(tips) ? tips : []).map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>
+      </div>
+    </div>
+  </section>`;
+}
+
 /* ---------------- Ana sayfa (mağaza) ---------------- */
 const CAT_KEYS = [['coats', 'f_coats'], ['jackets', 'f_jackets'], ['sheepskins', 'f_sheepskins'], ['bags', 'f_bags']];
 
@@ -245,6 +375,9 @@ function homeHTML() {
     </div>
   </section>
 
+  ${newInHTML()}
+  ${atelierHTML()}
+
   <section class="shop" id="shop">
     <div class="shop__head">
       <h2 class="shop__title">${esc(t('closet_kicker'))} <span id="shopCount"></span></h2>
@@ -258,17 +391,9 @@ function homeHTML() {
     <div class="grid" id="grid" aria-live="polite"></div>
   </section>
 
-  <section class="about" id="about">
-    <div class="about__inner">
-      <div class="about__head reveal">
-        <h2 class="about__title">${esc(t('about_title'))}</h2>
-        <p class="about__text">${esc(t('about_text'))}</p>
-      </div>
-      <div class="about__grid">
-        ${[1, 2, 3].map((i) => `<div class="fact reveal"><div class="fact__num">0${i}</div><h3 class="fact__t">${esc(t('about_' + i + 't'))}</h3><p class="fact__d">${esc(t('about_' + i + 'd'))}</p></div>`).join('')}
-      </div>
-    </div>
-  </section>
+  ${mtmHTML()}
+  ${guideHTML()}
+  ${recentHTML()}
 
   <section class="stores" id="stores">
     <div class="stores__inner">
@@ -367,23 +492,21 @@ function renderProduct(p, keepScroll) {
         <div class="product__price">${priceHTML(p)}</div>
         ${desc ? `<p class="product__desc">${esc(desc)}</p>` : ''}
         ${p.sizes.length ? `<div>
-          <div class="label" id="lblSize">${esc(t('sizes'))}</div>
+          <div class="label-row"><div class="label" id="lblSize">${esc(t('sizes'))}</div>${p.sizes.some((x) => SIZE_TABLE[x]) ? `<button type="button" class="link-btn" id="sizeGuideBtn">${esc(t('acc_size'))}</button>` : ''}</div>
           <div class="pills" role="group" aria-labelledby="lblSize">${p.sizes.map((s) => `<button type="button" class="pill${s === state.size ? ' is-on' : ''}" data-size="${esc(s)}" aria-pressed="${s === state.size}">${esc(s)}</button>`).join('')}</div>
+          ${p.model && p.model.height ? `<p class="model-info">${esc(t('model_info').replace('{h}', p.model.height).replace('{s}', p.model.size || ''))}</p>` : ''}
         </div>` : ''}
         ${vars.length ? `<div>
           <div class="label" id="lblColor">${esc(t('color'))}</div>
           <div class="swatches" role="group" aria-labelledby="lblColor">${vars.map((v, i) => `<button type="button" class="swatch${i === 0 ? ' is-on' : ''}" data-v="${i}" style="background:${esc(v.color)}" aria-label="${esc(t('color'))} ${i + 1}" aria-pressed="${i === 0}"></button>`).join('')}</div>
         </div>` : ''}
-        <div class="specs">
-          <div><span>${esc(t('material'))}</span><span>${esc(matOf(p))}</span></div>
-          <div><span>${esc(t('code'))}</span><span>${esc(p.code)}</span></div>
-          <div><span>${esc(t('care'))}</span><span>${esc(t('care_text'))}</span></div>
-        </div>
+        <div class="specs">${attrRows(p)}</div>
         <div class="actions">
           <a class="btn btn--red" href="${TG_URL}" target="_blank" rel="noopener">${TG}${esc(t('order_tg'))}</a>
           <a class="btn btn--ghost" href="tel:${PHONE}">${PHONE_ICO}${esc(t('call'))}</a>
         </div>
         <p class="order-note">${esc(t('order_note'))} <b>${esc(p.code)}</b></p>
+        ${accordionsHTML(p)}
         <div class="product__foot">
           <p class="addr">${esc(t('city1'))}, ${esc(t('addr1'))} · ${PHONE_TXT}</p>
           <button type="button" class="share" id="shareBtn">${SHARE}<span>${esc(t('share'))}</span></button>
@@ -396,6 +519,7 @@ function renderProduct(p, keepScroll) {
         ${others.map((o) => `<a class="mini" href="#/product/${esc(o.slug)}"><img src="${esc(o.image)}" alt="" loading="lazy"><span class="mini__name">${esc(nameOf(o))}</span><span class="mini__price">${money(o.price)}</span></a>`).join('')}
       </div>
     </div>` : ''}
+    ${recentHTML(p.id)}
   </section>
   <div class="buybar" role="region" aria-label="${esc(t('order_tg'))}">
     <div class="buybar__price">${priceHTML(p)}</div>
@@ -428,7 +552,10 @@ function renderProduct(p, keepScroll) {
   app.querySelectorAll('[data-size]').forEach((b) => b.addEventListener('click', () => {
     state.size = b.dataset.size;
     app.querySelectorAll('[data-size]').forEach((x) => { x.classList.toggle('is-on', x === b); x.setAttribute('aria-pressed', String(x === b)); });
+    app.querySelectorAll('[data-row]').forEach((r) => r.classList.toggle('is-on', r.dataset.row === state.size));
   }));
+  const sg = $('#sizeGuideBtn');
+  if (sg) sg.addEventListener('click', () => { const d = $('#accSize'); d.open = true; d.scrollIntoView({ behavior: reduceMotion() ? 'auto' : 'smooth', block: 'center' }); });
   app.querySelectorAll('[data-v]').forEach((b) => b.addEventListener('click', () => {
     const v = vars[+b.dataset.v];
     app.querySelectorAll('[data-v]').forEach((x) => { x.classList.toggle('is-on', x === b); x.setAttribute('aria-pressed', String(x === b)); });
@@ -455,6 +582,7 @@ function renderProduct(p, keepScroll) {
     brand: { '@type': 'Brand', name: 'Ferrizo' },
     offers: { '@type': 'Offer', priceCurrency: 'UAH', price: p.price, availability: p.stock === 'order' ? 'https://schema.org/PreOrder' : 'https://schema.org/InStock' }
   });
+  pushRecent(p.id);
   markNav('product');
   if (!keepScroll) window.scrollTo({ top: 0 });
 }
