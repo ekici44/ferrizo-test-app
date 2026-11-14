@@ -18,7 +18,8 @@ const state = {
 
 function readLang() {
   try {
-    const l = localStorage.getItem('fz-lang');
+    localStorage.removeItem('fz-lang'); // eski kalıcı seçim temizlenir
+    const l = sessionStorage.getItem('fz-lang');
     if (l && T[l]) return l;
   } catch (e) { /* yok */ }
   return 'uk';
@@ -76,7 +77,7 @@ function applyStatic() {
 function setLang(code) {
   if (!T[code] || code === state.lang) return;
   state.lang = code;
-  try { localStorage.setItem('fz-lang', code); } catch (err) { /* yok */ }
+  try { sessionStorage.setItem('fz-lang', code); } catch (err) { /* yok */ }
   applyStatic();
   route(true);
 }
